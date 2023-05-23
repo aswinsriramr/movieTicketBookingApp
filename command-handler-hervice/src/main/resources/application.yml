@@ -1,0 +1,25 @@
+server:
+  port: 5051
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
+spring:
+  kafka:
+    bootstrap-servers: localhost:49816
+    consumer:
+      group-id: command-handler
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  datasource:
+    url: jdbc:mysql://localhost:3306/movieapp?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
