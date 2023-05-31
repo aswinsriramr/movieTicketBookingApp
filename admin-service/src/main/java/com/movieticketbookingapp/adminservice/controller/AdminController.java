@@ -38,7 +38,7 @@ public class AdminController {
 
     @PostMapping("/add/movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie){
-        log.info("Sending command from controller");
+        log.info("Sending command from controller to service");
         return commandService.addMovie(movie);
     }
 
